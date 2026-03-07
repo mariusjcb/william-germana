@@ -14,7 +14,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  enable-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      contents: read
+    steps:
+      - name: Enable GitHub Pages
+        continue-on-error: true
+        run: |
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            https://api.github.com/repos/${{ github.repository }}/pages \
+            -d '{"build_type":"workflow"}' || true
+
   build-and-deploy:
+    needs: enable-pages
     runs-on: ubuntu-latest
     environment:
       name: github-pages

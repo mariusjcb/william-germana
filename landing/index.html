@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LanguageMeister - Choose Your Language</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --text: #1E293B;
+      --text-secondary: #64748B;
+      --border: #E2E8F0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0F172A;
+        --bg-card: #1E293B;
+        --text: #F1F5F9;
+        --text-secondary: #94A3B8;
+        --border: #334155;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+        --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 28rem;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: var(--text);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .card:active {
+      transform: translateY(0);
+    }
+
+    .flag {
+      width: 4rem;
+      height: 3rem;
+      border-radius: 0.5rem;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .flag-de {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .flag-de span:nth-child(1) { flex: 1; background: #000000; }
+    .flag-de span:nth-child(2) { flex: 1; background: #DD0000; }
+    .flag-de span:nth-child(3) { flex: 1; background: #FFCC00; }
+
+    .flag-ro {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .flag-ro span:nth-child(1) { flex: 1; background: #002B7F; }
+    .flag-ro span:nth-child(2) { flex: 1; background: #FCD116; }
+    .flag-ro span:nth-child(3) { flex: 1; background: #CE1126; }
+
+    .card-text {
+      text-align: left;
+    }
+
+    .card-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.125rem;
+    }
+
+    .card-level {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .card-de .card-level { color: #4F46E5; }
+    .card-ro .card-level { color: #0D9488; }
+
+    .footer {
+      margin-top: 3rem;
+      color: var(--text-secondary);
+      font-size: 0.8125rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">M</div>
+    <h1>LanguageMeister</h1>
+    <p class="subtitle">Choose your language</p>
+
+    <div class="cards">
+      <a href="./deutschmeister/" class="card card-de">
+        <div class="flag flag-de">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="card-text">
+          <div class="card-title">DeutschMeister</div>
+          <div class="card-level">German A1</div>
+        </div>
+      </a>
+
+      <a href="./romanianmeister/" class="card card-ro">
+        <div class="flag flag-ro">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="card-text">
+          <div class="card-title">RomanMeister</div>
+          <div class="card-level">Romanian A1</div>
+        </div>
+      </a>
+    </div>
+
+    <p class="footer">Interactive flashcards with spaced repetition</p>
+  </div>
+
+  <script>
+    // Unregister any old service workers at this scope
+    // (DeutschMeister previously served from root and its SW may intercept this page)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(regs) {
+        regs.forEach(function(reg) { reg.unregister(); });
+      });
+    }
+  </script>
+</body>
+</html>

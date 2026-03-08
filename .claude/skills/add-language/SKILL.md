@@ -101,13 +101,11 @@ Analyze the current architecture for multi-language extension:
    - `@deutschmeister/src/pages/` — routing and UI changes for language selection
    - `@deutschmeister/vite.config.ts` — build config changes
 
-2. **Present integration strategy options to the user** (do NOT choose without asking):
-
-   **Option A — Sibling App**: New directory (e.g., `romanianmeister/`) alongside `deutschmeister/` with shared components but independent data. Simpler, some code duplication.
-
-   **Option B — Multi-language Refactor**: Refactor `deutschmeister/` into a language-agnostic core with language packs as data modules. More complex but highly scalable.
-
-   **Option C — Hybrid**: Keep `deutschmeister/` as-is, create a shared `core/` library, new language apps import from core. Best of both worlds.
+2. **Integration strategy**: New languages get their own directory (e.g., `spanishmeister/`) alongside existing apps. The platform uses a sibling app architecture:
+   - Each language app is independent with its own `package.json`, build, and PWA config
+   - The landing page (`landing/index.html`) needs a new flag card added
+   - The deploy workflow (`.github/workflows/deploy.yml`) needs a new build step + copy step for the `_site/` output
+   - Each app's service worker is scoped to its own sub-path — no cross-app interference
 
 3. Identify all files needing modification vs. creation
 4. Plan the data file structure for the new language

@@ -30,9 +30,9 @@ Review a pull request for code quality, type safety, and adherence to project co
    - Missing tutorial registrations in `tutorials/index.ts`
    - Broken imports or type errors
    - Accessibility issues (missing ARIA labels)
-5. Run validation from `deutschmeister/`:
-   - `npm run lint`
-   - `npm run build`
+5. Run validation for both apps:
+   - `cd deutschmeister && npm run lint && npm run build`
+   - `cd romanianmeister && npm run lint && npm run build`
 6. Post the review using `gh pr review $ARGUMENTS` with appropriate verdict:
    - `--approve` if all checks pass
    - `--request-changes` if issues are found

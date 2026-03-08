@@ -39,6 +39,10 @@ Add one or more German A1 vocabulary words to the dataset.
 /add-vocab die Katze - cat, der Vogel - bird
 ```
 
+## Scope
+
+This skill is for DeutschMeister (German) vocabulary. Romanian vocabulary lives in `romanianmeister/src/data/vocabulary.ts`.
+
 ## Validation Rules
 
 - Every noun MUST have an article (der/die/das) in the german field

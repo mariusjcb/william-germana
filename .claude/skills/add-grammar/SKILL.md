@@ -34,6 +34,10 @@ Add one or more grammar flashcards to an existing grammar topic.
 9. Run `npm run build` from `deutschmeister/` to verify TypeScript compiles
 10. Report the added card(s) with their IDs
 
+## Scope
+
+This skill is for DeutschMeister (German) grammar cards. Romanian grammar cards live in `romanianmeister/src/data/grammar.ts`.
+
 ## Valid Topic IDs
 
 noun-gender, indefinite-articles, plural-formation, personal-pronouns, regular-verbs, irregular-verbs, separable-verbs, modal-verbs, nominative-case, accusative-case, sentence-structure, questions, negation, possessive-pronouns, prepositions

@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
-const base = process.env.GITHUB_PAGES ? '/william-germana/' : '/'
+const base = process.env.GITHUB_PAGES ? '/william-germana/deutschmeister/' : '/'
 
 export default defineConfig({
   base,
@@ -29,7 +29,6 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
-        navigateFallbackDenylist: [/\/romanianmeister\//],
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,

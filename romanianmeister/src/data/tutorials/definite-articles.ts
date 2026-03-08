@@ -1,0 +1,184 @@
+import type { GrammarTutorial } from '../../store/types';
+
+const definiteArticlesTutorial: GrammarTutorial = {
+  topicId: 'definite-articles',
+  title: "Definite Articles: Romania's Unique Enclitic System",
+  introduction:
+    'Romanian has a feature found in no other major Romance language: the definite article is attached to the END of the noun (enclitic), rather than placed before it. Instead of saying "the house" with a separate word, Romanian transforms "casă" into "casa" by adding the article as a suffix. This is one of the most distinctive features of Romanian grammar.',
+  sections: [
+    {
+      id: 'what-makes-romanian-special',
+      title: 'What Makes Romanian Special',
+      blocks: [
+        {
+          type: 'rule',
+          title: 'Enclitic Definite Articles',
+          content:
+            'In Romanian, the definite article ("the") is a suffix attached to the end of the noun. This is called an "enclitic" article. It changes based on the gender and number of the noun. Compare: "un băiat" (a boy) vs. "băiatul" (the boy).',
+        },
+        {
+          type: 'comparison',
+          left: {
+            title: 'Romanian (article at end)',
+            items: ['casă → casa (the house)', 'băiat → băiatul (the boy)', 'copil → copilul (the child)'],
+          },
+          right: {
+            title: 'Other Romance Languages',
+            items: ['la casa (Spanish)', 'la maison (French)', 'la casa (Italian)'],
+          },
+        },
+        {
+          type: 'callout',
+          variant: 'info',
+          content:
+            'This enclitic system was inherited from Latin through Balkan language contact. Bulgarian and Albanian share this feature, but among Romance languages, Romanian is unique.',
+        },
+      ],
+    },
+    {
+      id: 'masculine-definite',
+      title: 'Masculine Definite Articles',
+      blocks: [
+        {
+          type: 'text',
+          content:
+            'Masculine nouns add -ul or -le to form the definite form. Nouns ending in a consonant typically add -ul, while those ending in -e add -le.',
+        },
+        {
+          type: 'table',
+          headers: ['Indefinite', 'Definite', 'Ending Added', 'English'],
+          rows: [
+            ['un băiat', 'băiatul', '-ul', 'the boy'],
+            ['un om', 'omul', '-ul', 'the man'],
+            ['un câine', 'câinele', '-le', 'the dog'],
+            ['un perete', 'peretele', '-le', 'the wall'],
+            ['un frate', 'fratele', '-le', 'the brother'],
+          ],
+          caption: 'Masculine nouns: adding -ul or -le',
+          colorCoded: true,
+        },
+        {
+          type: 'example',
+          romanian: 'Băiatul merge la școală.',
+          english: 'The boy goes to school.',
+          highlights: [
+            { text: 'Băiatul', role: 'subject' },
+            { text: 'merge', role: 'verb' },
+          ],
+        },
+        {
+          type: 'example',
+          romanian: 'Câinele doarme în casă.',
+          english: 'The dog sleeps in the house.',
+          highlights: [
+            { text: 'Câinele', role: 'subject' },
+            { text: 'doarme', role: 'verb' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'feminine-definite',
+      title: 'Feminine Definite Articles',
+      blocks: [
+        {
+          type: 'text',
+          content:
+            'Feminine nouns ending in -ă change the -ă to -a. Feminine nouns ending in -e add -a. The pattern is straightforward: the final vowel merges with or takes the article -a.',
+        },
+        {
+          type: 'table',
+          headers: ['Indefinite', 'Definite', 'Change', 'English'],
+          rows: [
+            ['o casă', 'casa', '-ă → -a', 'the house'],
+            ['o masă', 'masa', '-ă → -a', 'the table'],
+            ['o carte', 'cartea', '-e + -a', 'the book'],
+            ['o floare', 'floarea', '-e + -a', 'the flower'],
+            ['o pâine', 'pâinea', '-e + -a', 'the bread'],
+          ],
+          caption: 'Feminine nouns: -ă becomes -a, or add -a after -e',
+          colorCoded: true,
+        },
+        {
+          type: 'example',
+          romanian: 'Cartea este pe masă.',
+          english: 'The book is on the table.',
+          highlights: [
+            { text: 'Cartea', role: 'subject' },
+            { text: 'este', role: 'verb' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'neuter-and-plural-definite',
+      title: 'Neuter & Plural Definite Articles',
+      blocks: [
+        {
+          type: 'rule',
+          title: 'Neuter Follows Masculine/Feminine Rules',
+          content:
+            'Neuter nouns use the masculine definite article (-ul/-le) in the singular and the feminine definite article (-le) in the plural. Remember: neuter = masculine singular + feminine plural.',
+        },
+        {
+          type: 'table',
+          headers: ['Indefinite Sg.', 'Definite Sg.', 'Indefinite Pl.', 'Definite Pl.'],
+          rows: [
+            ['un scaun', 'scaunul', 'niște scaune', 'scaunele'],
+            ['un tren', 'trenul', 'niște trenuri', 'trenurile'],
+            ['un oraș', 'orașul', 'niște orașe', 'orașele'],
+          ],
+          caption: 'Neuter nouns: masculine article in sg., feminine in pl.',
+          colorCoded: true,
+        },
+        {
+          type: 'example',
+          romanian: 'Trenul pleacă la ora trei.',
+          english: 'The train leaves at three o\'clock.',
+          highlights: [
+            { text: 'Trenul', role: 'subject' },
+            { text: 'pleacă', role: 'verb' },
+            { text: 'la ora trei', role: 'time' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'choosing-the-right-article',
+      title: 'Choosing the Right Definite Article',
+      blocks: [
+        {
+          type: 'decision',
+          question: 'Is the noun singular?',
+          yes: {
+            answer: 'Check the gender.',
+            followUp: {
+              question: 'Is the noun masculine or neuter?',
+              yes: {
+                answer: 'Add -ul (after consonant) or -le (after -e).',
+                explanation: 'băiat → băiatul, câine → câinele, scaun → scaunul.',
+              },
+              no: {
+                answer: 'Change -ă to -a, or add -a after -e.',
+                explanation: 'casă → casa, carte → cartea, floare → floarea.',
+              },
+            },
+          },
+          no: {
+            answer: 'Use plural definite endings.',
+            explanation:
+              'Masculine plurals add -i (băieții), feminine/neuter plurals: -le is added to the plural form (casele, scaunele, trenurile).',
+          },
+        },
+        {
+          type: 'callout',
+          variant: 'tip',
+          content:
+            'A helpful trick: if the indefinite noun ends in -ă, just swap -ă for -a to get the definite form. This covers most feminine nouns: fată → fata, seară → seara, școală → școala.',
+        },
+      ],
+    },
+  ],
+};
+
+export default definiteArticlesTutorial;

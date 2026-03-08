@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
-const base = process.env.GITHUB_PAGES ? '/william-germana/' : '/'
+const base = process.env.GITHUB_PAGES ? '/william-germana/romanianmeister/' : '/'
 
 export default defineConfig({
   base,
@@ -14,10 +14,10 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'DeutschMeister - German A1 Learning',
-        short_name: 'DeutschMeister',
-        description: 'Learn German A1 vocabulary and grammar with flashcards',
-        theme_color: '#4F46E5',
+        name: 'RomânMeister - Romanian A1 Learning',
+        short_name: 'RomânMeister',
+        description: 'Learn Romanian A1 vocabulary and grammar with flashcards',
+        theme_color: '#0D9488',
         background_color: '#F8FAFC',
         display: 'standalone',
         start_url: base,

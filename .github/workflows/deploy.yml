@@ -1,8 +1,8 @@
-name: Deploy DeutschMeister to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, master, claude/german-learning-app-plan-MpT9q, claude/execute-plan-IASnR]
+    branches: [main, master]
 
 permissions:
   contents: read
@@ -43,13 +43,25 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install and Build
+      - name: Build DeutschMeister
         working-directory: deutschmeister
         env:
           GITHUB_PAGES: true
         run: |
           npm ci
           npm run build
+
+      - name: Build RomânMeister
+        working-directory: romanianmeister
+        env:
+          GITHUB_PAGES: true
+        run: |
+          npm ci
+          npm run build
+
+      - name: Combine build outputs
+        run: |
+          cp -r romanianmeister/dist deutschmeister/dist/romanianmeister
 
       - uses: actions/configure-pages@v4
 

@@ -61,13 +61,17 @@ jobs:
 
       - name: Combine build outputs
         run: |
-          cp -r romanianmeister/dist deutschmeister/dist/romanianmeister
+          mkdir -p _site
+          cp landing/index.html _site/
+          cp landing/favicon.svg _site/
+          cp -r deutschmeister/dist _site/deutschmeister
+          cp -r romanianmeister/dist _site/romanianmeister
 
       - uses: actions/configure-pages@v4
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: deutschmeister/dist
+          path: _site
 
       - id: deployment
         uses: actions/deploy-pages@v4

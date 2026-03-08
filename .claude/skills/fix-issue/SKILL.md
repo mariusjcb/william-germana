@@ -28,7 +28,7 @@ Investigate, diagnose, and fix a GitHub issue.
    - Functional components, hooks for logic
    - Tailwind CSS 4 for styling
 6. Validate the fix:
-   - `npm run lint` from `deutschmeister/`
-   - `npm run build` from `deutschmeister/`
+   - `npm run lint` and `npm run build` from `deutschmeister/`
+   - `npm run lint` and `npm run build` from `romanianmeister/`
 7. Create a descriptive commit referencing the issue: `Fix #N: <description>`
 8. Suggest creating a PR: `gh pr create --title "Fix #N: <short description>" --body "Closes #N\n\n<explanation>"`

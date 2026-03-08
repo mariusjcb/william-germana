@@ -1,8 +1,11 @@
-# DeutschMeister - German A1 Learning PWA
+# LanguageMeister Platform - Multi-Language Learning PWAs
 
 ## Project Overview
 
-DeutschMeister is a mobile-first Progressive Web App for learning German at the A1 (CEFR) level. It uses interactive flashcards with spaced repetition (SM-2 algorithm), covering 701 vocabulary words across 18 categories and 154 grammar cards across 15 topics, plus 15 interactive grammar tutorials.
+LanguageMeister is a multi-language learning platform consisting of a static landing page and independent language-specific PWA apps. Each app uses interactive flashcards with spaced repetition (SM-2 algorithm). Currently supports:
+
+- **DeutschMeister** — German A1: 701 vocabulary words across 18 categories, 154 grammar cards across 15 topics, 15 interactive grammar tutorials
+- **RomanMeister** — Romanian A1
 
 All user progress is stored locally in the browser via IndexedDB. No backend or authentication.
 
@@ -17,7 +20,15 @@ All user progress is stored locally in the browser via IndexedDB. No backend or 
 
 ## Repository Layout
 
-The git root is `william-germana/`. The app code lives in the `deutschmeister/` subdirectory.
+The git root is `william-germana/`. The landing page and each language app live in their own subdirectories.
+
+- `landing/` — Static language selection page (no build step)
+  - `index.html` — Landing page with flag-based language cards
+  - `favicon.svg` — Platform favicon
+- `deutschmeister/` — German A1 learning app
+- `romanianmeister/` — Romanian A1 learning app
+
+### DeutschMeister Layout
 
 - `deutschmeister/src/pages/` — 4 pages: HomePage, LearnPage, GrammarPage, SettingsPage
 - `deutschmeister/src/components/` — UI components organized by domain:
@@ -36,16 +47,30 @@ The git root is `william-germana/`. The app code lives in the `deutschmeister/` 
 
 ## Build & Dev Commands
 
-All commands must be run from the `deutschmeister/` directory:
+Each language app has its own `package.json`. Run commands from the respective directory:
 
+### DeutschMeister (`deutschmeister/`)
 - `npm run dev` — Start Vite dev server
 - `npm run build` — TypeScript check (`tsc -b`) + Vite production build
 - `npm run lint` — ESLint (flat config, TS + React hooks + React Refresh)
 - `npm run preview` — Preview production build locally
 
+### RomanMeister (`romanianmeister/`)
+- Same commands as DeutschMeister
+
+### Landing Page (`landing/`)
+- Static HTML — no build step needed
+
 ## Deployment
 
-GitHub Pages via `.github/workflows/deploy.yml`. Pushes to main/master trigger build and deploy. The `base` path is conditionally set in `vite.config.ts` using `GITHUB_PAGES` env var.
+GitHub Pages via `.github/workflows/deploy.yml`. Pushes to main/master trigger build and deploy.
+
+### URL Structure
+- `/william-germana/` — Landing page (language selector)
+- `/william-germana/deutschmeister/` — DeutschMeister (German A1)
+- `/william-germana/romanianmeister/` — RomanMeister (Romanian A1)
+
+The deploy workflow builds both apps, then combines outputs into a `_site/` directory with the landing page at root and each app in its subdirectory. The `base` path is conditionally set in each app's `vite.config.ts` using the `GITHUB_PAGES` env var.
 
 ## Architecture Patterns
 
@@ -103,10 +128,13 @@ noun-gender, indefinite-articles, plural-formation, personal-pronouns, regular-v
 - **Adding grammar cards**: Append to `grammarCards` array in `deutschmeister/src/data/grammar.ts`, using next sequential ID (g155+), matching the GrammarCard interface
 - **Adding a tutorial**: Create new file in `deutschmeister/src/data/tutorials/`, export default a GrammarTutorial object, register it in `tutorials/index.ts`
 - **Adding a new page**: Create in `src/pages/`, add route in `App.tsx`, add nav item in `BottomNav.tsx`
+- **Adding a new language**: Create new directory (e.g., `spanishmeister/`), add flag card to `landing/index.html`, add build + copy steps in deploy workflow
 
 ## Important Notes
 
 - The `deutschmeister/` directory has its own `package.json` and `node_modules/`
+- The `romanianmeister/` directory has its own `package.json` and `node_modules/`
 - The root `package.json` is minimal (just a workspace marker)
 - IndexedDB database name is `deutschmeister`, version 1, with stores: cardProgress, dailySessions, settings
 - PWA icons are in `deutschmeister/public/` (icon-192.png, icon-512.png)
+- Each app's service worker is scoped to its own sub-path — no cross-app interference

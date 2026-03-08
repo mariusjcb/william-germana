@@ -40,6 +40,10 @@ Create a comprehensive, interactive grammar tutorial for a given topic.
 8. Run `npm run build` from `deutschmeister/` to verify TypeScript compiles
 9. Report the tutorial structure (sections and block types used)
 
+## Scope
+
+This skill is for DeutschMeister (German) tutorials. Romanian tutorials live in `romanianmeister/src/data/tutorials/`.
+
 ## Quality Guidelines
 
 - Every section should have at least 2–3 different block types for visual variety

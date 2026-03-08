@@ -8,17 +8,23 @@ allowed-tools:
 
 # Build and Deploy
 
-Build the DeutschMeister app and trigger GitHub Pages deployment.
+Build both language apps and trigger GitHub Pages deployment.
 
 ## Instructions
 
-1. Change to the `deutschmeister/` directory
-2. Run `npm run lint` — report any linting issues
-3. Run `npm run build` (runs `tsc -b && vite build`) — report the build output
-4. If either step fails, report errors and stop
-5. If build succeeds:
+1. Lint and build DeutschMeister:
+   - `cd deutschmeister && npm run lint` — report any linting issues
+   - `npm run build` — report the build output
+2. Lint and build RomanMeister:
+   - `cd romanianmeister && npm run lint` — report any linting issues
+   - `npm run build` — report the build output
+3. Verify the landing page exists: `ls landing/index.html landing/favicon.svg`
+4. If any step fails, report errors and stop
+5. If all builds succeed:
    - Stage and commit changes with a descriptive message
    - Push to the current branch to trigger the GitHub Actions deploy workflow
 6. Report the deployment status:
-   - GitHub Pages URL: `https://<username>.github.io/william-germana/`
+   - Landing page URL: `https://<username>.github.io/william-germana/`
+   - DeutschMeister URL: `https://<username>.github.io/william-germana/deutschmeister/`
+   - RomanMeister URL: `https://<username>.github.io/william-germana/romanianmeister/`
    - Check status: `gh run list --workflow=deploy.yml --limit 3`

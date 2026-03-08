@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, PartyPopper } from 'lucide-react';
 import { useAppContext } from '../store/AppContext';
@@ -8,8 +9,14 @@ import FlashCard from '../components/flashcard/FlashCard';
 export default function LearnPage() {
   const { state } = useAppContext();
   const navigate = useNavigate();
+
+  const levelVocab = useMemo(
+    () => vocabulary.filter(w => w.level === state.settings.currentLevel),
+    [state.settings.currentLevel]
+  );
+
   const { currentCard, currentIndex, total, loading, completed, handleRate } = useVocabSession(
-    vocabulary,
+    levelVocab,
     state.settings.dailyGoal
   );
 

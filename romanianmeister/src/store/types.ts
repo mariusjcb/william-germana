@@ -1,9 +1,12 @@
+export type Level = 'A1' | 'A2';
+
 export interface VocabWord {
   id: string;
   romanian: string;
   english: string;
   category: string;
   partOfSpeech: 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
+  level: Level;
   gender?: 'm' | 'f' | 'n';
   plural?: string;
   exampleRO?: string;
@@ -14,9 +17,18 @@ export interface GrammarCard {
   id: string;
   topicId: string;
   topicName: string;
+  level: Level;
   question: string;
   answer: string;
   explanation: string;
+}
+
+export interface GrammarTopic {
+  id: string;
+  name: string;
+  description: string;
+  cardCount: number;
+  level: Level;
 }
 
 export interface CardProgress {
@@ -44,6 +56,7 @@ export interface UserSettings {
   notificationsEnabled: boolean;
   notificationTime: string;
   cardDirection: 'ro-en' | 'en-ro' | 'mixed';
+  currentLevel: Level;
   streak: number;
   lastActiveDate: string;
 }

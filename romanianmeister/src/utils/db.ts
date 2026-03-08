@@ -30,6 +30,7 @@ export const defaultSettings: UserSettings = {
   notificationsEnabled: false,
   notificationTime: '09:00',
   cardDirection: 'mixed',
+  currentLevel: 'A1',
   streak: 0,
   lastActiveDate: '',
 };
@@ -37,7 +38,7 @@ export const defaultSettings: UserSettings = {
 export async function getSettings(): Promise<UserSettings> {
   const db = await getDB();
   const stored = await db.get('settings', 'user');
-  return stored ? (stored.data as UserSettings) : { ...defaultSettings };
+  return stored ? { ...defaultSettings, ...(stored.data as UserSettings) } : { ...defaultSettings };
 }
 
 export async function saveSettings(settings: UserSettings): Promise<void> {

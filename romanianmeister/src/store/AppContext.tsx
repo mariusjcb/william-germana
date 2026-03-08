@@ -1,7 +1,9 @@
 import { createContext, useContext, useEffect, useReducer, type ReactNode } from 'react';
-import type { AppState, UserSettings, DailySession } from './types';
+import type { AppState, UserSettings, DailySession, Level } from './types';
 import { getSettings, saveSettings, getDailySession, saveDailySession, defaultSettings } from '../utils/db';
 import { getToday } from '../utils/spacedRepetition';
+import { vocabulary } from '../data/vocabulary';
+import { grammarCards } from '../data/grammar';
 
 type Action =
   | { type: 'INIT'; settings: UserSettings; session: DailySession; totalMastered: number; grammarMastered: number }
@@ -23,23 +25,37 @@ const initialState: AppState = {
   settings: defaultSettings,
   todaySession: emptySession,
   totalMastered: 0,
-  totalWords: 617,
-  totalGrammar: 120,
+  totalWords: 0,
+  totalGrammar: 0,
   grammarMastered: 0,
 };
 
+function countByLevel(level: Level) {
+  return {
+    totalWords: vocabulary.filter(w => w.level === level).length,
+    totalGrammar: grammarCards.filter(c => c.level === level).length,
+  };
+}
+
 function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
-    case 'INIT':
+    case 'INIT': {
+      const counts = countByLevel(action.settings.currentLevel);
       return {
         ...state,
         settings: action.settings,
         todaySession: action.session,
         totalMastered: action.totalMastered,
         grammarMastered: action.grammarMastered,
+        ...counts,
       };
-    case 'UPDATE_SETTINGS':
-      return { ...state, settings: { ...state.settings, ...action.settings } };
+    }
+    case 'UPDATE_SETTINGS': {
+      const newSettings = { ...state.settings, ...action.settings };
+      const levelChanged = action.settings.currentLevel && action.settings.currentLevel !== state.settings.currentLevel;
+      const counts = levelChanged ? countByLevel(newSettings.currentLevel) : {};
+      return { ...state, settings: newSettings, ...counts };
+    }
     case 'UPDATE_SESSION':
       return { ...state, todaySession: { ...state.todaySession, ...action.session } };
     case 'SET_MASTERED':

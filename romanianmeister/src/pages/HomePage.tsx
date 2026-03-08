@@ -1,16 +1,24 @@
+import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, PenLine } from 'lucide-react';
 import { useAppContext } from '../store/AppContext';
 import { useMasteredCount } from '../hooks/useFlashcard';
+import { grammarTopics } from '../data/grammar';
 import StreakCounter from '../components/dashboard/StreakCounter';
 import DailyProgress from '../components/dashboard/DailyProgress';
 import OverallProgress from '../components/dashboard/OverallProgress';
 import MotivationalQuote from '../components/dashboard/MotivationalQuote';
+import LevelSelector from '../components/LevelSelector';
 
 export default function HomePage() {
   const { state } = useAppContext();
   const { vocabMastered } = useMasteredCount();
   const navigate = useNavigate();
+
+  const topicCount = useMemo(
+    () => grammarTopics.filter(t => t.level === state.settings.currentLevel).length,
+    [state.settings.currentLevel]
+  );
 
   return (
     <div className="py-6 space-y-5">
@@ -19,6 +27,9 @@ export default function HomePage() {
         <h1 className="text-2xl font-bold text-text-primary">Rom\u00e2nMeister</h1>
         <StreakCounter streak={state.settings.streak} />
       </div>
+
+      {/* Level Selector */}
+      <LevelSelector />
 
       {/* Daily Progress */}
       <DailyProgress
@@ -51,7 +62,7 @@ export default function HomePage() {
         >
           <PenLine size={28} className="mb-3 text-primary" />
           <p className="font-bold text-base">Grammar Practice</p>
-          <p className="text-sm text-text-secondary mt-1">15 topics</p>
+          <p className="text-sm text-text-secondary mt-1">{topicCount} topics</p>
         </button>
       </div>
 

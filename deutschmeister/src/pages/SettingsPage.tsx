@@ -49,7 +49,7 @@ export default function SettingsPage() {
       <h1 className="text-2xl font-bold text-text-primary">Settings</h1>
 
       {/* Daily Goal */}
-      <div className="bg-surface rounded-2xl p-5 shadow-sm border border-gray-100">
+      <div className="bg-surface rounded-2xl p-5 shadow-sm border border-border-light">
         <p className="font-semibold text-text-primary mb-3">Daily Goal</p>
         <div className="grid grid-cols-4 gap-2">
           {[50, 75, 100, 150].map((goal) => (
@@ -59,7 +59,7 @@ export default function SettingsPage() {
               className={`py-2.5 rounded-xl text-sm font-semibold transition-colors ${
                 settings.dailyGoal === goal
                   ? 'bg-primary text-white'
-                  : 'bg-gray-100 text-text-primary hover:bg-gray-200'
+                  : 'bg-muted text-text-primary hover:bg-muted-hover'
               }`}
             >
               {goal}
@@ -70,7 +70,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Notifications */}
-      <div className="bg-surface rounded-2xl p-5 shadow-sm border border-gray-100">
+      <div className="bg-surface rounded-2xl p-5 shadow-sm border border-border-light">
         <div className="flex items-center justify-between mb-3">
           <p className="font-semibold text-text-primary">Daily Reminder</p>
           <button
@@ -78,7 +78,7 @@ export default function SettingsPage() {
             className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
               settings.notificationsEnabled
                 ? 'bg-primary text-white'
-                : 'bg-gray-100 text-text-secondary hover:bg-gray-200'
+                : 'bg-muted text-text-secondary hover:bg-muted-hover'
             }`}
           >
             {settings.notificationsEnabled ? <Bell size={16} /> : <BellOff size={16} />}
@@ -95,14 +95,14 @@ export default function SettingsPage() {
                 updateSettings({ notificationTime: e.target.value });
                 scheduleNotification(e.target.value);
               }}
-              className="border border-gray-200 rounded-lg px-3 py-1.5 text-sm"
+              className="border border-border rounded-lg px-3 py-1.5 text-sm"
             />
           </div>
         )}
       </div>
 
       {/* Card Direction */}
-      <div className="bg-surface rounded-2xl p-5 shadow-sm border border-gray-100">
+      <div className="bg-surface rounded-2xl p-5 shadow-sm border border-border-light">
         <p className="font-semibold text-text-primary mb-3">Card Direction</p>
         <div className="space-y-2">
           {[
@@ -116,7 +116,7 @@ export default function SettingsPage() {
               className={`w-full text-left p-3 rounded-xl transition-colors ${
                 settings.cardDirection === opt.value
                   ? 'bg-primary/10 border-primary/30 border'
-                  : 'bg-gray-50 border border-transparent hover:bg-gray-100'
+                  : 'bg-muted border border-transparent hover:bg-muted'
               }`}
             >
               <p className={`text-sm font-medium ${settings.cardDirection === opt.value ? 'text-primary' : 'text-text-primary'}`}>
@@ -129,11 +129,11 @@ export default function SettingsPage() {
       </div>
 
       {/* Data */}
-      <div className="bg-surface rounded-2xl p-5 shadow-sm border border-gray-100 space-y-3">
+      <div className="bg-surface rounded-2xl p-5 shadow-sm border border-border-light space-y-3">
         <p className="font-semibold text-text-primary">Data</p>
         <button
           onClick={handleExport}
-          className="w-full flex items-center gap-2 py-2.5 px-4 bg-gray-50 rounded-xl text-sm font-medium text-text-primary hover:bg-gray-100 transition-colors"
+          className="w-full flex items-center gap-2 py-2.5 px-4 bg-muted rounded-xl text-sm font-medium text-text-primary hover:bg-muted transition-colors"
         >
           <Download size={16} />
           Export Progress
@@ -158,7 +158,7 @@ export default function SettingsPage() {
             <div className="flex gap-3">
               <button
                 onClick={() => setShowResetConfirm(false)}
-                className="flex-1 py-2.5 bg-gray-100 rounded-xl text-sm font-semibold text-text-primary"
+                className="flex-1 py-2.5 bg-muted rounded-xl text-sm font-semibold text-text-primary"
               >
                 Cancel
               </button>

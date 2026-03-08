@@ -33,7 +33,7 @@ export default function FlashCard({ card, onRate, current, total }: FlashCardPro
       <div className="perspective cursor-pointer" onClick={() => !flipped && setFlipped(true)}>
         <div className={`relative preserve-3d flip-transition ${flipped ? 'rotate-y-180' : ''}`}>
           {/* Front */}
-          <div className="backface-hidden bg-surface rounded-2xl shadow-lg p-8 min-h-[280px] flex flex-col items-center justify-center border border-gray-100">
+          <div className="backface-hidden bg-surface rounded-2xl shadow-lg p-8 min-h-[280px] flex flex-col items-center justify-center border border-border-light">
             <div className="text-center">
               <p className="text-2xl font-bold text-text-primary mb-3">{card.front}</p>
               {card.meta.partOfSpeech && (
@@ -55,7 +55,7 @@ export default function FlashCard({ card, onRate, current, total }: FlashCardPro
                 <p className="text-sm text-text-secondary italic">{card.meta.explanation}</p>
               )}
               {card.meta.example && (
-                <p className="text-sm text-text-secondary mt-2 border-t border-gray-100 pt-2">
+                <p className="text-sm text-text-secondary mt-2 border-t border-border-light pt-2">
                   {card.meta.example}
                 </p>
               )}
@@ -73,7 +73,7 @@ export default function FlashCard({ card, onRate, current, total }: FlashCardPro
 
       {/* Progress bar */}
       <div className="mt-6">
-        <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div className="h-2 bg-muted rounded-full overflow-hidden">
           <div
             className="h-full bg-primary rounded-full progress-fill"
             style={{ width: `${(current / total) * 100}%` }}

@@ -15,6 +15,15 @@
   --color-muted-hover: #E2E8F0;
   --color-border: #E2E8F0;
   --color-border-light: #F1F5F9;
+  --color-gender-m: #3B82F6;
+  --color-gender-f: #EF4444;
+  --color-gender-n: #22C55E;
+  --color-role-subject: #3B82F6;
+  --color-role-verb: #EF4444;
+  --color-role-object: #22C55E;
+  --color-role-time: #F59E0B;
+  --color-role-prefix: #F97316;
+  --color-role-negation: #F43F5E;
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 

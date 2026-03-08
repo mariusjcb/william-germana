@@ -52,7 +52,7 @@ export default function LearnPage() {
             </button>
             <button
               onClick={() => navigate('/')}
-              className="w-full bg-surface text-text-primary py-3 px-6 rounded-xl font-semibold border border-gray-200 hover:border-primary/30 transition-colors"
+              className="w-full bg-surface text-text-primary py-3 px-6 rounded-xl font-semibold border border-border hover:border-primary/30 transition-colors"
             >
               Back to Home
             </button>

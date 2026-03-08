@@ -1,11 +1,14 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, Circle, ChevronRight } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Circle, ChevronRight, BookOpen, PenLine } from 'lucide-react';
 import { grammarCards, grammarTopics } from '../data/grammar';
 import { useGrammarSession } from '../hooks/useFlashcard';
 import { getAllCardProgress } from '../utils/db';
 import { isMastered } from '../utils/spacedRepetition';
+import { loadTutorial } from '../data/tutorials';
 import FlashCard from '../components/flashcard/FlashCard';
+import TutorialView from '../components/tutorial/TutorialView';
+import type { GrammarTutorial } from '../store/types';
 
 function TopicList({ onSelectTopic }: { onSelectTopic: (topicId: string) => void }) {
   const [topicProgress, setTopicProgress] = useState<Map<string, { mastered: number; total: number }>>(new Map());
@@ -40,19 +43,19 @@ function TopicList({ onSelectTopic }: { onSelectTopic: (topicId: string) => void
             <button
               key={topic.id}
               onClick={() => onSelectTopic(topic.id)}
-              className="w-full bg-surface rounded-xl p-4 shadow-sm border border-gray-100 hover:border-primary/30 transition-colors text-left flex items-center gap-3"
+              className="w-full bg-surface rounded-xl p-4 shadow-sm border border-border-light hover:border-primary/30 transition-colors text-left flex items-center gap-3"
             >
               <div className="flex-shrink-0">
                 {done ? (
                   <CheckCircle2 size={24} className="text-success" />
                 ) : (
-                  <Circle size={24} className="text-gray-300" />
+                  <Circle size={24} className="text-text-secondary opacity-40" />
                 )}
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-text-primary text-sm">{topic.name}</p>
                 <p className="text-xs text-text-secondary">{topic.description}</p>
-                <div className="h-1.5 bg-gray-200 rounded-full overflow-hidden mt-2">
+                <div className="h-1.5 bg-muted rounded-full overflow-hidden mt-2">
                   <div
                     className={`h-full rounded-full progress-fill ${done ? 'bg-success' : 'bg-primary-light'}`}
                     style={{ width: `${pct}%` }}
@@ -77,7 +80,7 @@ function GrammarSession({ topicId, onBack }: { topicId: string; onBack: () => vo
 
   if (loading) {
     return (
-      <div className="py-6 flex items-center justify-center min-h-[60vh]">
+      <div className="flex items-center justify-center min-h-[40vh]">
         <div className="w-10 h-10 border-3 border-primary border-t-transparent rounded-full animate-spin" />
       </div>
     );
@@ -85,7 +88,7 @@ function GrammarSession({ topicId, onBack }: { topicId: string; onBack: () => vo
 
   if (completed || !currentCard) {
     return (
-      <div className="py-6 flex items-center justify-center min-h-[60vh]">
+      <div className="flex items-center justify-center min-h-[40vh]">
         <div className="text-center slide-in">
           <CheckCircle2 size={64} className="text-success mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-text-primary mb-2">Topic Complete!</h2>
@@ -96,7 +99,7 @@ function GrammarSession({ topicId, onBack }: { topicId: string; onBack: () => vo
             </button>
             <button
               onClick={() => navigate('/')}
-              className="w-full bg-surface text-text-primary py-3 px-6 rounded-xl font-semibold border border-gray-200"
+              className="w-full bg-surface text-text-primary py-3 px-6 rounded-xl font-semibold border border-border"
             >
               Home
             </button>
@@ -106,14 +109,68 @@ function GrammarSession({ topicId, onBack }: { topicId: string; onBack: () => vo
     );
   }
 
+  return <FlashCard card={currentCard} onRate={handleRate} current={currentIndex} total={total} />;
+}
+
+function TopicDetailView({ topicId, onBack }: { topicId: string; onBack: () => void }) {
+  const [tab, setTab] = useState<'tutorial' | 'practice'>('tutorial');
+  const [tutorial, setTutorial] = useState<GrammarTutorial | null>(null);
+  const [loadingTutorial, setLoadingTutorial] = useState(true);
+  const topic = grammarTopics.find((t) => t.id === topicId);
+
+  useEffect(() => {
+    setLoadingTutorial(true);
+    loadTutorial(topicId).then((t) => {
+      setTutorial(t);
+      setLoadingTutorial(false);
+    });
+  }, [topicId]);
+
   return (
     <div className="py-6">
       <button onClick={onBack} className="flex items-center gap-1 text-text-secondary hover:text-primary mb-2 transition-colors">
         <ArrowLeft size={18} />
         <span className="text-sm font-medium">Topics</span>
       </button>
-      <p className="text-sm font-medium text-primary mb-4">{topic?.name}</p>
-      <FlashCard card={currentCard} onRate={handleRate} current={currentIndex} total={total} />
+      <h2 className="text-lg font-bold text-text-primary mb-4">{topic?.name}</h2>
+
+      {/* Tab bar */}
+      <div className="flex bg-muted rounded-xl p-1 mb-5">
+        <button
+          onClick={() => setTab('tutorial')}
+          className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+            tab === 'tutorial' ? 'bg-surface text-primary shadow-sm' : 'text-text-secondary'
+          }`}
+        >
+          <BookOpen size={16} />
+          Tutorial
+        </button>
+        <button
+          onClick={() => setTab('practice')}
+          className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+            tab === 'practice' ? 'bg-surface text-primary shadow-sm' : 'text-text-secondary'
+          }`}
+        >
+          <PenLine size={16} />
+          Practice
+        </button>
+      </div>
+
+      {tab === 'tutorial' ? (
+        loadingTutorial ? (
+          <div className="flex items-center justify-center min-h-[40vh]">
+            <div className="w-10 h-10 border-3 border-primary border-t-transparent rounded-full animate-spin" />
+          </div>
+        ) : tutorial ? (
+          <TutorialView tutorial={tutorial} onStartPractice={() => setTab('practice')} />
+        ) : (
+          <div className="text-center py-12 text-text-secondary">
+            <p className="text-sm">Tutorial coming soon!</p>
+          </div>
+        )
+      ) : (
+        <GrammarSession topicId={topicId} onBack={onBack} />
+      )}
     </div>
   );
 }
@@ -122,7 +179,7 @@ export default function GrammarPage() {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
 
   if (selectedTopic) {
-    return <GrammarSession topicId={selectedTopic} onBack={() => setSelectedTopic(null)} />;
+    return <TopicDetailView topicId={selectedTopic} onBack={() => setSelectedTopic(null)} />;
   }
 
   return <TopicList onSelectTopic={setSelectedTopic} />;

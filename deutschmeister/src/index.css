@@ -11,6 +11,19 @@
   --color-bg: #F8FAFC;
   --color-text-primary: #1E293B;
   --color-text-secondary: #64748B;
+  --color-muted: #F1F5F9;
+  --color-muted-hover: #E2E8F0;
+  --color-border: #E2E8F0;
+  --color-border-light: #F1F5F9;
+  --color-gender-m: #3B82F6;
+  --color-gender-f: #EF4444;
+  --color-gender-n: #22C55E;
+  --color-role-subject: #3B82F6;
+  --color-role-verb: #EF4444;
+  --color-role-object: #22C55E;
+  --color-role-time: #F59E0B;
+  --color-role-prefix: #F97316;
+  --color-role-negation: #F43F5E;
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
@@ -27,6 +40,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overscroll-behavior: none;
+}
+
+/* Dark mode: auto-detect system preference */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #818CF8;
+    --color-primary-light: #A5B4FC;
+    --color-primary-dark: #6366F1;
+    --color-surface: #1E293B;
+    --color-bg: #0F172A;
+    --color-text-primary: #F1F5F9;
+    --color-text-secondary: #94A3B8;
+    --color-muted: #334155;
+    --color-muted-hover: #475569;
+    --color-border: #334155;
+    --color-border-light: #1E293B;
+    color-scheme: dark;
+  }
 }
 
 .perspective { perspective: 1000px; }

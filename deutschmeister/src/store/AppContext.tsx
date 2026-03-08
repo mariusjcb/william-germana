@@ -23,7 +23,7 @@ const initialState: AppState = {
   settings: defaultSettings,
   todaySession: emptySession,
   totalMastered: 0,
-  totalWords: 620,
+  totalWords: 701,
   totalGrammar: 154,
   grammarMastered: 0,
 };

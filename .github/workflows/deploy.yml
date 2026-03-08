@@ -2,7 +2,7 @@ name: Deploy DeutschMeister to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/german-learning-app-plan-MpT9q]
+    branches: [main, master, claude/german-learning-app-plan-MpT9q, claude/execute-plan-IASnR]
 
 permissions:
   contents: read

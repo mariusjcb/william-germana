@@ -47,7 +47,7 @@ export default function HomePage() {
 
         <button
           onClick={() => navigate('/grammar')}
-          className="bg-surface text-text-primary rounded-2xl p-5 shadow-md border border-gray-100 hover:border-primary/30 transition-colors text-left"
+          className="bg-surface text-text-primary rounded-2xl p-5 shadow-md border border-border-light hover:border-primary/30 transition-colors text-left"
         >
           <PenLine size={28} className="mb-3 text-primary" />
           <p className="font-bold text-base">Grammar Practice</p>

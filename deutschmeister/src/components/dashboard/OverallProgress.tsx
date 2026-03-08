@@ -10,7 +10,7 @@ export default function OverallProgress({ mastered, total, label = 'words master
   const pct = total > 0 ? Math.min(100, (mastered / total) * 100) : 0;
 
   return (
-    <div className="bg-surface rounded-2xl p-5 shadow-sm border border-gray-100">
+    <div className="bg-surface rounded-2xl p-5 shadow-sm border border-border-light">
       <div className="flex items-center gap-2 mb-3">
         <BarChart3 size={18} className="text-primary" />
         <p className="text-sm font-medium text-text-secondary">Overall Progress</p>
@@ -19,7 +19,7 @@ export default function OverallProgress({ mastered, total, label = 'words master
         <span className="text-3xl font-bold text-text-primary">{mastered}</span>
         <span className="text-lg text-text-secondary mb-0.5">/ {total}</span>
       </div>
-      <div className="h-2.5 bg-gray-200 rounded-full overflow-hidden">
+      <div className="h-2.5 bg-muted rounded-full overflow-hidden">
         <div
           className="h-full bg-primary-light rounded-full progress-fill"
           style={{ width: `${pct}%` }}

@@ -72,3 +72,49 @@ export interface AppState {
   totalGrammar: number;
   grammarMastered: number;
 }
+
+// --- Grammar Tutorial Types ---
+
+export type HighlightRole = 'subject' | 'verb' | 'object' | 'article' | 'prefix' | 'time' | 'negation';
+export type DiagramRole = 'subject' | 'verb' | 'object' | 'time' | 'prefix' | 'other';
+
+export interface ExampleHighlight {
+  text: string;
+  role: HighlightRole;
+}
+
+export interface DiagramSlot {
+  position: number;
+  label: string;
+  content: string;
+  role: DiagramRole;
+}
+
+export interface DecisionNode {
+  answer: string;
+  explanation?: string;
+  followUp?: { question: string; yes: DecisionNode; no: DecisionNode };
+}
+
+export type TutorialBlock =
+  | { type: 'text'; content: string }
+  | { type: 'rule'; title: string; content: string }
+  | { type: 'table'; headers: string[]; rows: string[][]; caption?: string; colorCoded?: boolean }
+  | { type: 'example'; german: string; english: string; highlights?: ExampleHighlight[] }
+  | { type: 'diagram'; slots: DiagramSlot[]; caption?: string }
+  | { type: 'decision'; question: string; yes: DecisionNode; no: DecisionNode }
+  | { type: 'callout'; variant: 'tip' | 'warning' | 'info'; content: string }
+  | { type: 'comparison'; left: { title: string; items: string[] }; right: { title: string; items: string[] } };
+
+export interface TutorialSection {
+  id: string;
+  title: string;
+  blocks: TutorialBlock[];
+}
+
+export interface GrammarTutorial {
+  topicId: string;
+  title: string;
+  introduction: string;
+  sections: TutorialSection[];
+}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, Circle, ChevronRight } from 'lucide-react';
 import { grammarCards, grammarTopics } from '../data/grammar';
@@ -70,7 +70,7 @@ function TopicList({ onSelectTopic }: { onSelectTopic: (topicId: string) => void
 }
 
 function GrammarSession({ topicId, onBack }: { topicId: string; onBack: () => void }) {
-  const topicCards = grammarCards.filter((c) => c.topicId === topicId);
+  const topicCards = useMemo(() => grammarCards.filter((c) => c.topicId === topicId), [topicId]);
   const topic = grammarTopics.find((t) => t.id === topicId);
   const { currentCard, currentIndex, total, loading, completed, handleRate } = useGrammarSession(topicCards);
   const navigate = useNavigate();

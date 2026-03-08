@@ -2,16 +2,24 @@ import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, Circle, ChevronRight, BookOpen, PenLine } from 'lucide-react';
 import { grammarCards, grammarTopics } from '../data/grammar';
+import { useAppContext } from '../store/AppContext';
 import { useGrammarSession } from '../hooks/useFlashcard';
 import { getAllCardProgress } from '../utils/db';
 import { isMastered } from '../utils/spacedRepetition';
 import { loadTutorial } from '../data/tutorials';
 import FlashCard from '../components/flashcard/FlashCard';
 import TutorialView from '../components/tutorial/TutorialView';
+import LevelSelector from '../components/LevelSelector';
 import type { GrammarTutorial } from '../store/types';
 
 function TopicList({ onSelectTopic }: { onSelectTopic: (topicId: string) => void }) {
+  const { state } = useAppContext();
   const [topicProgress, setTopicProgress] = useState<Map<string, { mastered: number; total: number }>>(new Map());
+
+  const levelTopics = useMemo(
+    () => grammarTopics.filter(t => t.level === state.settings.currentLevel),
+    [state.settings.currentLevel]
+  );
 
   useEffect(() => {
     (async () => {
@@ -19,20 +27,23 @@ function TopicList({ onSelectTopic }: { onSelectTopic: (topicId: string) => void
       const progressMap = new Map(all.map((p) => [p.cardId, p]));
       const tp = new Map<string, { mastered: number; total: number }>();
 
-      for (const topic of grammarTopics) {
+      for (const topic of levelTopics) {
         const topicCards = grammarCards.filter((c) => c.topicId === topic.id);
         const masteredCount = topicCards.filter((c) => isMastered(progressMap.get(c.id))).length;
         tp.set(topic.id, { mastered: masteredCount, total: topicCards.length });
       }
       setTopicProgress(tp);
     })();
-  }, []);
+  }, [levelTopics]);
 
   return (
     <div className="py-6">
-      <h1 className="text-2xl font-bold text-text-primary mb-6">Grammar Topics</h1>
+      <h1 className="text-2xl font-bold text-text-primary mb-4">Grammar Topics</h1>
+      <div className="mb-5">
+        <LevelSelector />
+      </div>
       <div className="space-y-3">
-        {grammarTopics.map((topic) => {
+        {levelTopics.map((topic) => {
           const progress = topicProgress.get(topic.id);
           const mastered = progress?.mastered ?? 0;
           const total = progress?.total ?? 0;

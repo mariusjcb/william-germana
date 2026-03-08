@@ -3,6 +3,7 @@ import { Bell, BellOff, RotateCcw, Download, Info } from 'lucide-react';
 import { useAppContext } from '../store/AppContext';
 import { clearAllData } from '../utils/db';
 import { requestNotificationPermission, scheduleNotification } from '../utils/notifications';
+import LevelSelector from '../components/LevelSelector';
 
 export default function SettingsPage() {
   const { state, updateSettings } = useAppContext();
@@ -47,6 +48,12 @@ export default function SettingsPage() {
   return (
     <div className="py-6 space-y-6">
       <h1 className="text-2xl font-bold text-text-primary">Settings</h1>
+
+      {/* Level */}
+      <div className="bg-surface rounded-2xl p-5 shadow-sm border border-border-light">
+        <p className="font-semibold text-text-primary mb-3">Level</p>
+        <LevelSelector />
+      </div>
 
       {/* Daily Goal */}
       <div className="bg-surface rounded-2xl p-5 shadow-sm border border-border-light">
@@ -176,7 +183,7 @@ export default function SettingsPage() {
       {/* App Info */}
       <div className="flex items-center justify-center gap-1 text-xs text-text-secondary py-4">
         <Info size={12} />
-        <span>Rom\u00e2nMeister v1.0 — Romanian A1 Learning App</span>
+        <span>Rom\u00e2nMeister v2.0 — Romanian A1-A2 Learning App</span>
       </div>
     </div>
   );

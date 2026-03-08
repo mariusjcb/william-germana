@@ -1,8 +1,10 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import type { VocabWord, GrammarCard, FlashcardItem, CardProgress, CardDirection } from '../store/types';
 import { getAllCardProgress, saveCardProgress, getCardProgress } from '../utils/db';
 import { isDue, calculateNextReview, isMastered, getToday } from '../utils/spacedRepetition';
 import { useAppContext } from '../store/AppContext';
+import { vocabulary } from '../data/vocabulary';
+import { grammarCards as allGrammarCards } from '../data/grammar';
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -208,21 +210,31 @@ export function useGrammarSession(grammarCards: GrammarCard[]) {
 }
 
 export function useMasteredCount() {
+  const { state } = useAppContext();
   const [vocabMastered, setVocabMastered] = useState(0);
   const [grammarMastered, setGrammarMastered] = useState(0);
+
+  const levelVocabIds = useMemo(
+    () => new Set(vocabulary.filter(w => w.level === state.settings.currentLevel).map(w => w.id)),
+    [state.settings.currentLevel]
+  );
+  const levelGrammarIds = useMemo(
+    () => new Set(allGrammarCards.filter(c => c.level === state.settings.currentLevel).map(c => c.id)),
+    [state.settings.currentLevel]
+  );
 
   const refresh = useCallback(async () => {
     const all = await getAllCardProgress();
     let vm = 0, gm = 0;
     for (const p of all) {
       if (isMastered(p)) {
-        if (p.cardType === 'vocab') vm++;
-        else gm++;
+        if (p.cardType === 'vocab' && levelVocabIds.has(p.cardId)) vm++;
+        else if (p.cardType === 'grammar' && levelGrammarIds.has(p.cardId)) gm++;
       }
     }
     setVocabMastered(vm);
     setGrammarMastered(gm);
-  }, []);
+  }, [levelVocabIds, levelGrammarIds]);
 
   useEffect(() => { refresh(); }, [refresh]);
 

@@ -621,6 +621,111 @@ export const vocabulary: VocabWord[] = [
   { id: 'v618', german: 'deshalb', english: 'therefore', category: 'Common Words', partOfSpeech: 'adverb' },
   { id: 'v619', german: 'normalerweise', english: 'normally', category: 'Common Words', partOfSpeech: 'adverb' },
   { id: 'v620', german: 'ziemlich', english: 'quite / fairly', category: 'Common Words', partOfSpeech: 'adverb' },
+
+  // Additional Greetings & Politeness (5 more → 25 total)
+  { id: 'v621', german: 'Herzlich willkommen', english: 'Welcome', category: 'Greetings & Politeness', partOfSpeech: 'phrase' },
+  { id: 'v622', german: 'Gern geschehen', english: 'You\'re welcome', category: 'Greetings & Politeness', partOfSpeech: 'phrase' },
+  { id: 'v623', german: 'Alles Gute', english: 'All the best', category: 'Greetings & Politeness', partOfSpeech: 'phrase' },
+  { id: 'v624', german: 'Schönen Tag noch', english: 'Have a nice day', category: 'Greetings & Politeness', partOfSpeech: 'phrase' },
+  { id: 'v625', german: 'Bis morgen', english: 'See you tomorrow', category: 'Greetings & Politeness', partOfSpeech: 'phrase' },
+
+  // Additional Personal Information (15 more → 35 total)
+  { id: 'v626', german: 'die Staatsangehörigkeit', english: 'citizenship / nationality', category: 'Personal Information', partOfSpeech: 'noun', gender: 'f', plural: 'die Staatsangehörigkeiten' },
+  { id: 'v627', german: 'der Geburtstag', english: 'birthday', category: 'Personal Information', partOfSpeech: 'noun', gender: 'm', plural: 'die Geburtstage', exampleDE: 'Wann ist dein Geburtstag?', exampleEN: 'When is your birthday?' },
+  { id: 'v628', german: 'der Geburtsort', english: 'place of birth', category: 'Personal Information', partOfSpeech: 'noun', gender: 'm', plural: 'die Geburtsorte' },
+  { id: 'v629', german: 'die Telefonnummer', english: 'phone number', category: 'Personal Information', partOfSpeech: 'noun', gender: 'f', plural: 'die Telefonnummern' },
+  { id: 'v630', german: 'die E-Mail-Adresse', english: 'email address', category: 'Personal Information', partOfSpeech: 'noun', gender: 'f', plural: 'die E-Mail-Adressen' },
+  { id: 'v631', german: 'der Familienstand', english: 'marital status', category: 'Personal Information', partOfSpeech: 'noun', gender: 'm' },
+  { id: 'v632', german: 'ledig', english: 'single / unmarried', category: 'Personal Information', partOfSpeech: 'adjective' },
+  { id: 'v633', german: 'verheiratet', english: 'married', category: 'Personal Information', partOfSpeech: 'adjective', exampleDE: 'Sind Sie verheiratet?', exampleEN: 'Are you married?' },
+  { id: 'v634', german: 'geschieden', english: 'divorced', category: 'Personal Information', partOfSpeech: 'adjective' },
+  { id: 'v635', german: 'die Muttersprache', english: 'mother tongue / native language', category: 'Personal Information', partOfSpeech: 'noun', gender: 'f', plural: 'die Muttersprachen' },
+  { id: 'v636', german: 'die Postleitzahl', english: 'postal code / ZIP code', category: 'Personal Information', partOfSpeech: 'noun', gender: 'f', plural: 'die Postleitzahlen' },
+  { id: 'v637', german: 'die Hausnummer', english: 'house number', category: 'Personal Information', partOfSpeech: 'noun', gender: 'f', plural: 'die Hausnummern' },
+  { id: 'v638', german: 'der Ausweis', english: 'ID card', category: 'Personal Information', partOfSpeech: 'noun', gender: 'm', plural: 'die Ausweise' },
+  { id: 'v639', german: 'der Reisepass', english: 'passport', category: 'Personal Information', partOfSpeech: 'noun', gender: 'm', plural: 'die Reisepässe' },
+  { id: 'v640', german: 'unterschreiben', english: 'to sign', category: 'Personal Information', partOfSpeech: 'verb', exampleDE: 'Bitte unterschreiben Sie hier.', exampleEN: 'Please sign here.' },
+
+  // Additional Numbers (10 more → 40 total)
+  { id: 'v641', german: 'null', english: 'zero', category: 'Numbers', partOfSpeech: 'other' },
+  { id: 'v642', german: 'tausend', english: 'thousand', category: 'Numbers', partOfSpeech: 'other' },
+  { id: 'v643', german: 'eine Million', english: 'one million', category: 'Numbers', partOfSpeech: 'other' },
+  { id: 'v644', german: 'elfte', english: 'eleventh', category: 'Numbers', partOfSpeech: 'adjective' },
+  { id: 'v645', german: 'zwölfte', english: 'twelfth', category: 'Numbers', partOfSpeech: 'adjective' },
+  { id: 'v646', german: 'zwanzigste', english: 'twentieth', category: 'Numbers', partOfSpeech: 'adjective' },
+  { id: 'v647', german: 'dreißigste', english: 'thirtieth', category: 'Numbers', partOfSpeech: 'adjective' },
+  { id: 'v648', german: 'die Hälfte', english: 'half', category: 'Numbers', partOfSpeech: 'noun', gender: 'f' },
+  { id: 'v649', german: 'das Viertel', english: 'quarter', category: 'Numbers', partOfSpeech: 'noun', gender: 'n' },
+  { id: 'v650', german: 'das Drittel', english: 'third (fraction)', category: 'Numbers', partOfSpeech: 'noun', gender: 'n' },
+
+  // Additional Days, Months & Seasons (5 more → 30 total)
+  { id: 'v651', german: 'das Datum', english: 'date', category: 'Days, Months & Seasons', partOfSpeech: 'noun', gender: 'n', plural: 'die Daten' },
+  { id: 'v652', german: 'der Feiertag', english: 'holiday / public holiday', category: 'Days, Months & Seasons', partOfSpeech: 'noun', gender: 'm', plural: 'die Feiertage' },
+  { id: 'v653', german: 'das Wochenende', english: 'weekend', category: 'Days, Months & Seasons', partOfSpeech: 'noun', gender: 'n', plural: 'die Wochenenden' },
+  { id: 'v654', german: 'der Kalender', english: 'calendar', category: 'Days, Months & Seasons', partOfSpeech: 'noun', gender: 'm', plural: 'die Kalender' },
+  { id: 'v655', german: 'übermorgen', english: 'the day after tomorrow', category: 'Days, Months & Seasons', partOfSpeech: 'adverb' },
+
+  // Additional Food & Drink (10 more → 60 total)
+  { id: 'v656', german: 'die Kartoffel', english: 'potato', category: 'Food & Drink', partOfSpeech: 'noun', gender: 'f', plural: 'die Kartoffeln' },
+  { id: 'v657', german: 'das Hähnchen', english: 'chicken (meat)', category: 'Food & Drink', partOfSpeech: 'noun', gender: 'n' },
+  { id: 'v658', german: 'die Tomate', english: 'tomato', category: 'Food & Drink', partOfSpeech: 'noun', gender: 'f', plural: 'die Tomaten' },
+  { id: 'v659', german: 'die Gurke', english: 'cucumber', category: 'Food & Drink', partOfSpeech: 'noun', gender: 'f', plural: 'die Gurken' },
+  { id: 'v660', german: 'der Honig', english: 'honey', category: 'Food & Drink', partOfSpeech: 'noun', gender: 'm' },
+  { id: 'v661', german: 'die Marmelade', english: 'jam / marmalade', category: 'Food & Drink', partOfSpeech: 'noun', gender: 'f', plural: 'die Marmeladen' },
+  { id: 'v662', german: 'die Süßigkeit', english: 'candy / sweet', category: 'Food & Drink', partOfSpeech: 'noun', gender: 'f', plural: 'die Süßigkeiten' },
+  { id: 'v663', german: 'bestellen', english: 'to order (food)', category: 'Food & Drink', partOfSpeech: 'verb', exampleDE: 'Ich möchte bestellen.', exampleEN: 'I would like to order.' },
+  { id: 'v664', german: 'die Rechnung', english: 'bill / check', category: 'Food & Drink', partOfSpeech: 'noun', gender: 'f', plural: 'die Rechnungen', exampleDE: 'Die Rechnung, bitte.', exampleEN: 'The bill, please.' },
+  { id: 'v665', german: 'das Trinkgeld', english: 'tip (gratuity)', category: 'Food & Drink', partOfSpeech: 'noun', gender: 'n' },
+
+  // Additional Housing & Living (10 more → 45 total)
+  { id: 'v666', german: 'die Treppe', english: 'stairs / staircase', category: 'Housing & Living', partOfSpeech: 'noun', gender: 'f', plural: 'die Treppen' },
+  { id: 'v667', german: 'der Aufzug', english: 'elevator / lift', category: 'Housing & Living', partOfSpeech: 'noun', gender: 'm', plural: 'die Aufzüge' },
+  { id: 'v668', german: 'der Keller', english: 'basement / cellar', category: 'Housing & Living', partOfSpeech: 'noun', gender: 'm', plural: 'die Keller' },
+  { id: 'v669', german: 'der Balkon', english: 'balcony', category: 'Housing & Living', partOfSpeech: 'noun', gender: 'm', plural: 'die Balkone' },
+  { id: 'v670', german: 'die Heizung', english: 'heating', category: 'Housing & Living', partOfSpeech: 'noun', gender: 'f', plural: 'die Heizungen' },
+  { id: 'v671', german: 'die Waschmaschine', english: 'washing machine', category: 'Housing & Living', partOfSpeech: 'noun', gender: 'f', plural: 'die Waschmaschinen' },
+  { id: 'v672', german: 'der Kühlschrank', english: 'refrigerator', category: 'Housing & Living', partOfSpeech: 'noun', gender: 'm', plural: 'die Kühlschränke' },
+  { id: 'v673', german: 'der Vermieter', english: 'landlord', category: 'Housing & Living', partOfSpeech: 'noun', gender: 'm', plural: 'die Vermieter' },
+  { id: 'v674', german: 'der Nachbar', english: 'neighbor', category: 'Housing & Living', partOfSpeech: 'noun', gender: 'm', plural: 'die Nachbarn', exampleDE: 'Mein Nachbar ist nett.', exampleEN: 'My neighbor is nice.' },
+  { id: 'v675', german: 'einziehen', english: 'to move in', category: 'Housing & Living', partOfSpeech: 'verb' },
+
+  // Additional Travel & Transport (9 more → 40 total)
+  { id: 'v676', german: 'die Haltestelle', english: 'stop (bus/tram)', category: 'Travel & Transport', partOfSpeech: 'noun', gender: 'f', plural: 'die Haltestellen' },
+  { id: 'v677', german: 'der Führerschein', english: 'driver\'s license', category: 'Travel & Transport', partOfSpeech: 'noun', gender: 'm', plural: 'die Führerscheine' },
+  { id: 'v678', german: 'die Autobahn', english: 'highway / motorway', category: 'Travel & Transport', partOfSpeech: 'noun', gender: 'f', plural: 'die Autobahnen' },
+  { id: 'v679', german: 'die Kreuzung', english: 'intersection / crossroads', category: 'Travel & Transport', partOfSpeech: 'noun', gender: 'f', plural: 'die Kreuzungen' },
+  { id: 'v680', german: 'die Ampel', english: 'traffic light', category: 'Travel & Transport', partOfSpeech: 'noun', gender: 'f', plural: 'die Ampeln' },
+  { id: 'v681', german: 'parken', english: 'to park', category: 'Travel & Transport', partOfSpeech: 'verb', exampleDE: 'Wo kann ich parken?', exampleEN: 'Where can I park?' },
+  { id: 'v682', german: 'umsteigen', english: 'to transfer / change (trains)', category: 'Travel & Transport', partOfSpeech: 'verb', exampleDE: 'Sie müssen in Berlin umsteigen.', exampleEN: 'You have to transfer in Berlin.' },
+  { id: 'v683', german: 'der Stau', english: 'traffic jam', category: 'Travel & Transport', partOfSpeech: 'noun', gender: 'm', plural: 'die Staus' },
+  { id: 'v684', german: 'die Tankstelle', english: 'gas station / petrol station', category: 'Travel & Transport', partOfSpeech: 'noun', gender: 'f', plural: 'die Tankstellen' },
+
+  // Additional Shopping (6 more → 30 total)
+  { id: 'v685', german: 'die Größe', english: 'size', category: 'Shopping', partOfSpeech: 'noun', gender: 'f', plural: 'die Größen' },
+  { id: 'v686', german: 'umtauschen', english: 'to exchange / return', category: 'Shopping', partOfSpeech: 'verb' },
+  { id: 'v687', german: 'das Angebot', english: 'offer / special deal', category: 'Shopping', partOfSpeech: 'noun', gender: 'n', plural: 'die Angebote' },
+  { id: 'v688', german: 'die Quittung', english: 'receipt', category: 'Shopping', partOfSpeech: 'noun', gender: 'f', plural: 'die Quittungen' },
+  { id: 'v689', german: 'die Kreditkarte', english: 'credit card', category: 'Shopping', partOfSpeech: 'noun', gender: 'f', plural: 'die Kreditkarten' },
+  { id: 'v690', german: 'das Bargeld', english: 'cash', category: 'Shopping', partOfSpeech: 'noun', gender: 'n' },
+
+  // Additional Body & Health (5 more → 30 total)
+  { id: 'v691', german: 'die Erkältung', english: 'cold (illness)', category: 'Body & Health', partOfSpeech: 'noun', gender: 'f', plural: 'die Erkältungen' },
+  { id: 'v692', german: 'das Fieber', english: 'fever', category: 'Body & Health', partOfSpeech: 'noun', gender: 'n' },
+  { id: 'v693', german: 'der Husten', english: 'cough', category: 'Body & Health', partOfSpeech: 'noun', gender: 'm' },
+  { id: 'v694', german: 'das Rezept', english: 'prescription / recipe', category: 'Body & Health', partOfSpeech: 'noun', gender: 'n', plural: 'die Rezepte' },
+  { id: 'v695', german: 'die Versicherung', english: 'insurance', category: 'Body & Health', partOfSpeech: 'noun', gender: 'f', plural: 'die Versicherungen' },
+
+  // Additional Clothing (1 more → 20 total)
+  { id: 'v696', german: 'die Mütze', english: 'cap / beanie', category: 'Clothing', partOfSpeech: 'noun', gender: 'f', plural: 'die Mützen' },
+
+  // Additional Weather & Environment (1 more → 25 total)
+  { id: 'v697', german: 'das Gewitter', english: 'thunderstorm', category: 'Weather & Environment', partOfSpeech: 'noun', gender: 'n', plural: 'die Gewitter' },
+
+  // Additional Communication (4 more → 25 total)
+  { id: 'v698', german: 'die Nachricht', english: 'message / news', category: 'Communication', partOfSpeech: 'noun', gender: 'f', plural: 'die Nachrichten' },
+  { id: 'v699', german: 'das Formular', english: 'form (document)', category: 'Communication', partOfSpeech: 'noun', gender: 'n', plural: 'die Formulare' },
+  { id: 'v700', german: 'ausfüllen', english: 'to fill out', category: 'Communication', partOfSpeech: 'verb', exampleDE: 'Bitte füllen Sie das Formular aus.', exampleEN: 'Please fill out the form.' },
+  { id: 'v701', german: 'das Paket', english: 'package / parcel', category: 'Communication', partOfSpeech: 'noun', gender: 'n', plural: 'die Pakete' },
 ];
 
 export const categories = [...new Set(vocabulary.map(w => w.category))];

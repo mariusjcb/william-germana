@@ -1,0 +1,168 @@
+import type { GrammarTutorial } from '../../store/types';
+
+const regularVerbsTutorial: GrammarTutorial = {
+  topicId: 'regular-verbs',
+  title: 'Regular Verbs: Present Tense Conjugation',
+  introduction:
+    'Romanian verbs are grouped into four conjugation classes based on their infinitive endings: -a (1st), -ea (2nd), -e (3rd), and -i/-î (4th). Each class follows a predictable pattern of endings in the present tense. Learning these patterns will allow you to conjugate hundreds of verbs correctly.',
+  sections: [
+    {
+      id: 'conjugation-overview',
+      title: 'The Four Conjugation Classes',
+      blocks: [
+        {
+          type: 'rule',
+          title: 'Identify the Class from the Infinitive',
+          content:
+            'The infinitive form of a Romanian verb starts with "a" (the equivalent of "to"): a lucra (to work), a vedea (to see), a merge (to go), a dormi (to sleep). The ending after "a" determines the conjugation class: -a, -ea, -e, or -i/-î.',
+        },
+        {
+          type: 'table',
+          headers: ['Class', 'Infinitive Ending', 'Example Verbs'],
+          rows: [
+            ['1st (I)', '-a', 'a lucra (to work), a cânta (to sing), a mânca (to eat)'],
+            ['2nd (II)', '-ea', 'a vedea (to see), a avea (to have), a putea (to be able)'],
+            ['3rd (III)', '-e', 'a merge (to go), a face (to do), a scrie (to write)'],
+            ['4th (IV)', '-i / -î', 'a dormi (to sleep), a veni (to come), a coborî (to descend)'],
+          ],
+          caption: 'The four Romanian verb conjugation classes',
+          colorCoded: true,
+        },
+        {
+          type: 'callout',
+          variant: 'info',
+          content:
+            'The 1st conjugation (-a) is by far the largest class and includes most borrowed and newly created verbs. If you learn only one pattern well, make it the 1st conjugation.',
+        },
+      ],
+    },
+    {
+      id: 'first-conjugation',
+      title: '1st Conjugation: a lucra (to work)',
+      blocks: [
+        {
+          type: 'table',
+          headers: ['Person', 'Pronoun', 'Conjugation', 'English'],
+          rows: [
+            ['1st sg.', 'eu', 'lucrez', 'I work'],
+            ['2nd sg.', 'tu', 'lucrezi', 'you work'],
+            ['3rd sg.', 'el/ea', 'lucrează', 'he/she works'],
+            ['1st pl.', 'noi', 'lucrăm', 'we work'],
+            ['2nd pl.', 'voi', 'lucrați', 'you all work'],
+            ['3rd pl.', 'ei/ele', 'lucrează', 'they work'],
+          ],
+          caption: '1st conjugation: a lucra — present tense',
+          colorCoded: true,
+        },
+        {
+          type: 'example',
+          romanian: 'Lucrez de luni până vineri.',
+          english: 'I work from Monday to Friday.',
+          highlights: [
+            { text: 'Lucrez', role: 'verb' },
+            { text: 'de luni până vineri', role: 'time' },
+          ],
+        },
+        {
+          type: 'callout',
+          variant: 'tip',
+          content:
+            'Note that the 3rd person singular and plural are identical: "lucrează." This is true for all 1st conjugation verbs. The endings to memorize: -ez, -ezi, -ează, -ăm, -ați, -ează.',
+        },
+      ],
+    },
+    {
+      id: 'second-third-conjugation',
+      title: '2nd & 3rd Conjugation',
+      blocks: [
+        {
+          type: 'text',
+          content:
+            'The 2nd conjugation (-ea) and 3rd conjugation (-e) are smaller groups. Many common verbs belong to these classes, and some are irregular. Here are regular patterns.',
+        },
+        {
+          type: 'table',
+          headers: ['Person', 'a vedea (2nd)', 'a merge (3rd)'],
+          rows: [
+            ['eu', 'văd', 'merg'],
+            ['tu', 'vezi', 'mergi'],
+            ['el/ea', 'vede', 'merge'],
+            ['noi', 'vedem', 'mergem'],
+            ['voi', 'vedeți', 'mergeți'],
+            ['ei/ele', 'văd', 'merg'],
+          ],
+          caption: '2nd and 3rd conjugation present tense',
+          colorCoded: true,
+        },
+        {
+          type: 'example',
+          romanian: 'Merg la piață în fiecare sâmbătă.',
+          english: 'I go to the market every Saturday.',
+          highlights: [
+            { text: 'Merg', role: 'verb' },
+            { text: 'în fiecare sâmbătă', role: 'time' },
+          ],
+        },
+        {
+          type: 'example',
+          romanian: 'Vedem un film diseară.',
+          english: 'We are watching a movie tonight.',
+          highlights: [
+            { text: 'Vedem', role: 'verb' },
+            { text: 'un film', role: 'object' },
+            { text: 'diseară', role: 'time' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'fourth-conjugation',
+      title: '4th Conjugation: a dormi (to sleep)',
+      blocks: [
+        {
+          type: 'table',
+          headers: ['Person', 'Pronoun', 'Conjugation', 'English'],
+          rows: [
+            ['1st sg.', 'eu', 'dorm', 'I sleep'],
+            ['2nd sg.', 'tu', 'dormi', 'you sleep'],
+            ['3rd sg.', 'el/ea', 'doarme', 'he/she sleeps'],
+            ['1st pl.', 'noi', 'dormim', 'we sleep'],
+            ['2nd pl.', 'voi', 'dormiți', 'you all sleep'],
+            ['3rd pl.', 'ei/ele', 'dorm', 'they sleep'],
+          ],
+          caption: '4th conjugation: a dormi — present tense',
+          colorCoded: true,
+        },
+        {
+          type: 'example',
+          romanian: 'Copiii dorm după-amiaza.',
+          english: 'The children sleep in the afternoon.',
+          highlights: [
+            { text: 'Copiii', role: 'subject' },
+            { text: 'dorm', role: 'verb' },
+            { text: 'după-amiaza', role: 'time' },
+          ],
+        },
+        {
+          type: 'comparison',
+          left: {
+            title: '1st conj. endings (-a)',
+            items: ['-ez, -ezi, -ează', '-ăm, -ați, -ează', 'Largest class'],
+          },
+          right: {
+            title: '4th conj. endings (-i)',
+            items: ['-, -i, -e', '-im, -iți, -', 'Many common verbs'],
+          },
+        },
+        {
+          type: 'callout',
+          variant: 'tip',
+          content:
+            'A useful pattern: for the 4th conjugation, the 1st person singular and 3rd person plural are identical (dorm/dorm), and the 3rd person singular often has a vowel change (dormi → doarme, veni → vine).',
+        },
+      ],
+    },
+  ],
+};
+
+export default regularVerbsTutorial;

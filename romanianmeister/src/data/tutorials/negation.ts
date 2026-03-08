@@ -1,0 +1,192 @@
+import type { GrammarTutorial } from '../../store/types';
+
+const negationTutorial: GrammarTutorial = {
+  topicId: 'negation',
+  title: 'Negation in Romanian',
+  introduction:
+    'Negation in Romanian is formed primarily with the word "nu" placed before the verb. Unlike English, Romanian uses double (and even triple) negation as a standard grammatical feature — saying "nimeni nu vede nimic" (nobody doesn\'t see nothing) is not only correct but required. This tutorial covers all the negation patterns you need at A1 level.',
+  sections: [
+    {
+      id: 'basic-negation',
+      title: 'Basic Negation with "Nu"',
+      blocks: [
+        {
+          type: 'rule',
+          title: 'Place "Nu" Before the Verb',
+          content:
+            'To negate a sentence in Romanian, place "nu" directly before the verb. This is the simplest and most important negation rule. "Nu" never changes form — it is always just "nu."',
+        },
+        {
+          type: 'diagram',
+          slots: [
+            { position: 1, label: 'Subject', content: '(Eu)', role: 'subject' },
+            { position: 2, label: 'Negation', content: 'Nu', role: 'other' },
+            { position: 3, label: 'Verb', content: 'vorbesc', role: 'verb' },
+            { position: 4, label: 'Object', content: 'franceza', role: 'object' },
+          ],
+          caption: 'Nu vorbesc franceza. (I do not speak French.)',
+        },
+        {
+          type: 'example',
+          romanian: 'Nu sunt din București.',
+          english: 'I am not from Bucharest.',
+          highlights: [
+            { text: 'Nu', role: 'negation' },
+            { text: 'sunt', role: 'verb' },
+          ],
+        },
+        {
+          type: 'example',
+          romanian: 'Maria nu lucrează astăzi.',
+          english: 'Maria does not work today.',
+          highlights: [
+            { text: 'Maria', role: 'subject' },
+            { text: 'nu', role: 'negation' },
+            { text: 'lucrează', role: 'verb' },
+            { text: 'astăzi', role: 'time' },
+          ],
+        },
+        {
+          type: 'callout',
+          variant: 'info',
+          content:
+            'Unlike English, Romanian does not use a helper verb for negation. You do not need "do not" or "does not" — just put "nu" before the main verb. "I do not eat" = "Nu mănânc" (literally: "Not eat-I").',
+        },
+      ],
+    },
+    {
+      id: 'double-negation',
+      title: 'Double Negation (Required!)',
+      blocks: [
+        {
+          type: 'rule',
+          title: 'Double Negation Is Correct Romanian',
+          content:
+            'In Romanian, when you use a negative word like "nimeni" (nobody), "nimic" (nothing), or "niciodată" (never), you MUST also use "nu" before the verb. This double negation is grammatically required and does not cancel out.',
+        },
+        {
+          type: 'table',
+          headers: ['Negative Word', 'Meaning', 'Example'],
+          rows: [
+            ['nimeni', 'nobody', 'Nimeni nu este acasă. (Nobody is home.)'],
+            ['nimic', 'nothing', 'Nu am nimic. (I have nothing.)'],
+            ['niciodată', 'never', 'Nu merg niciodată acolo. (I never go there.)'],
+            ['nicăieri', 'nowhere', 'Nu merg nicăieri. (I am not going anywhere.)'],
+            ['niciun / nicio', 'no, not any', 'Nu am nicio idee. (I have no idea.)'],
+          ],
+          caption: 'Negative words — always paired with "nu"',
+          colorCoded: true,
+        },
+        {
+          type: 'example',
+          romanian: 'Nimeni nu știe răspunsul.',
+          english: 'Nobody knows the answer.',
+          highlights: [
+            { text: 'Nimeni', role: 'subject' },
+            { text: 'nu', role: 'negation' },
+            { text: 'știe', role: 'verb' },
+            { text: 'răspunsul', role: 'object' },
+          ],
+        },
+        {
+          type: 'example',
+          romanian: 'Nu văd nimic.',
+          english: 'I see nothing. / I don\'t see anything.',
+          highlights: [
+            { text: 'Nu', role: 'negation' },
+            { text: 'văd', role: 'verb' },
+            { text: 'nimic', role: 'object' },
+          ],
+        },
+        {
+          type: 'comparison',
+          left: {
+            title: 'English (single negation)',
+            items: ['Nobody knows.', 'I never go there.', 'I have nothing.'],
+          },
+          right: {
+            title: 'Romanian (double negation required)',
+            items: ['Nimeni NU știe.', 'NU merg niciodată acolo.', 'NU am nimic.'],
+          },
+        },
+      ],
+    },
+    {
+      id: 'negative-expressions',
+      title: 'Common Negative Expressions',
+      blocks: [
+        {
+          type: 'text',
+          content:
+            'There are several fixed negative expressions that are extremely useful in daily conversation. Learn them as complete phrases.',
+        },
+        {
+          type: 'table',
+          headers: ['Romanian', 'English'],
+          rows: [
+            ['Nu știu.', 'I don\'t know.'],
+            ['Nu înțeleg.', 'I don\'t understand.'],
+            ['Nu vreau.', 'I don\'t want to.'],
+            ['Nu pot.', 'I can\'t.'],
+            ['Nu e problemă.', 'It\'s not a problem. / No problem.'],
+            ['Nu-i nimic.', 'It\'s nothing. / Never mind.'],
+            ['Încă nu.', 'Not yet.'],
+            ['Nu mai...', 'No longer... / Not anymore...'],
+          ],
+          caption: 'Essential negative expressions',
+        },
+        {
+          type: 'example',
+          romanian: 'Nu mai locuiesc în Cluj.',
+          english: 'I no longer live in Cluj.',
+          highlights: [
+            { text: 'Nu mai', role: 'negation' },
+            { text: 'locuiesc', role: 'verb' },
+          ],
+        },
+        {
+          type: 'callout',
+          variant: 'tip',
+          content:
+            '"Nu mai" means "no longer" or "not anymore" and is extremely common. "Nu mai am timp" = "I don\'t have time anymore." "Nu mai vreau" = "I don\'t want to anymore."',
+        },
+      ],
+    },
+    {
+      id: 'negation-decision-tree',
+      title: 'Choosing the Right Negation',
+      blocks: [
+        {
+          type: 'decision',
+          question: 'Do you want to negate just the verb (a simple "not")?',
+          yes: {
+            answer: 'Use "nu" before the verb.',
+            explanation: 'Nu merg. (I don\'t go.) Nu știu. (I don\'t know.) Nu este bine. (It\'s not OK.)',
+          },
+          no: {
+            answer: 'You need a negative word.',
+            followUp: {
+              question: 'Are you negating a person (nobody)?',
+              yes: {
+                answer: 'Use "nimeni nu..."',
+                explanation: 'Nimeni nu vine. (Nobody is coming.) Remember: "nu" is still required before the verb!',
+              },
+              no: {
+                answer: 'Use the appropriate negative word + "nu".',
+                explanation: 'Things: nimic (nothing), Time: niciodată (never), Place: nicăieri (nowhere). Always pair with "nu" before the verb.',
+              },
+            },
+          },
+        },
+        {
+          type: 'callout',
+          variant: 'warning',
+          content:
+            'Never drop the "nu" when using negative words! "Nimeni știe" is INCORRECT. You must say "Nimeni nu știe." This is the single most important rule of Romanian negation.',
+        },
+      ],
+    },
+  ],
+};
+
+export default negationTutorial;

@@ -1,0 +1,137 @@
+import type { GrammarTutorial } from '../../store/types';
+
+const personalPronounsTutorial: GrammarTutorial = {
+  topicId: 'personal-pronouns',
+  title: 'Personal Pronouns in Romanian',
+  introduction:
+    'Personal pronouns replace nouns to avoid repetition. Romanian has subject pronouns for each person and number, but since verbs are conjugated with distinct endings for each person, pronouns are often omitted in everyday speech. Understanding when to use or drop them is an important part of sounding natural.',
+  sections: [
+    {
+      id: 'subject-pronouns',
+      title: 'Subject Pronouns',
+      blocks: [
+        {
+          type: 'rule',
+          title: 'The Six Subject Pronouns',
+          content:
+            'Romanian has six subject pronoun forms: eu (I), tu (you informal), el/ea (he/she), noi (we), voi (you all), ei/ele (they masculine/they feminine). The third person distinguishes between masculine and feminine in both singular and plural.',
+        },
+        {
+          type: 'table',
+          headers: ['Person', 'Singular', 'Plural'],
+          rows: [
+            ['1st', 'eu (I)', 'noi (we)'],
+            ['2nd', 'tu (you)', 'voi (you all)'],
+            ['3rd masc.', 'el (he)', 'ei (they, masc.)'],
+            ['3rd fem.', 'ea (she)', 'ele (they, fem.)'],
+          ],
+          caption: 'Romanian subject pronouns',
+          colorCoded: true,
+        },
+        {
+          type: 'example',
+          romanian: 'Eu sunt student.',
+          english: 'I am a student.',
+          highlights: [
+            { text: 'Eu', role: 'subject' },
+            { text: 'sunt', role: 'verb' },
+          ],
+        },
+        {
+          type: 'example',
+          romanian: 'Ea lucrează la un birou.',
+          english: 'She works at an office.',
+          highlights: [
+            { text: 'Ea', role: 'subject' },
+            { text: 'lucrează', role: 'verb' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'formal-vs-informal',
+      title: 'Formal vs. Informal Address',
+      blocks: [
+        {
+          type: 'text',
+          content:
+            'Romanian distinguishes between informal and formal address. "Tu" is used with friends, family, children, and peers. "Dumneavoastră" (abbreviated "Dvs.") is the formal "you" used with strangers, elders, officials, and in professional settings.',
+        },
+        {
+          type: 'comparison',
+          left: {
+            title: 'Informal (tu)',
+            items: ['Tu ești frumos. (You are handsome.)', 'Ce faci? (How are you?)', 'Used with friends, family, peers'],
+          },
+          right: {
+            title: 'Formal (dumneavoastră)',
+            items: ['Dumneavoastră sunteți bun. (You are good.)', 'Ce faceți? (How are you?)', 'Used with strangers, elders, officials'],
+          },
+        },
+        {
+          type: 'callout',
+          variant: 'warning',
+          content:
+            'Using "tu" with someone you should address formally can be seen as rude. When in doubt, use "dumneavoastră." The other person will invite you to switch to "tu" if appropriate.',
+        },
+        {
+          type: 'example',
+          romanian: 'Dumneavoastră vorbiți românește?',
+          english: 'Do you (formal) speak Romanian?',
+          highlights: [
+            { text: 'Dumneavoastră', role: 'subject' },
+            { text: 'vorbiți', role: 'verb' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'when-to-omit-pronouns',
+      title: 'When to Use or Omit Pronouns',
+      blocks: [
+        {
+          type: 'rule',
+          title: 'Romanian Is a Pro-Drop Language',
+          content:
+            'Because Romanian verb conjugations clearly show the person and number, subject pronouns are often dropped. "Merg la școală" (I go to school) is more natural than "Eu merg la școală." Use the pronoun only for emphasis, contrast, or clarity.',
+        },
+        {
+          type: 'table',
+          headers: ['With Pronoun', 'Without Pronoun', 'When to Use'],
+          rows: [
+            ['Eu merg.', 'Merg.', 'Without pronoun is normal'],
+            ['Tu mergi.', 'Mergi.', 'Without pronoun is normal'],
+            ['Eu merg, tu stai.', '—', 'Use pronoun for contrast'],
+            ['El vine, nu ea.', '—', 'Use pronoun for emphasis'],
+          ],
+          caption: 'When to include or omit subject pronouns',
+        },
+        {
+          type: 'example',
+          romanian: 'Locuiesc în București.',
+          english: 'I live in Bucharest.',
+          highlights: [
+            { text: 'Locuiesc', role: 'verb' },
+          ],
+        },
+        {
+          type: 'example',
+          romanian: 'Eu locuiesc în București, nu el.',
+          english: 'I live in Bucharest, not him.',
+          highlights: [
+            { text: 'Eu', role: 'subject' },
+            { text: 'locuiesc', role: 'verb' },
+          ],
+        },
+        {
+          type: 'callout',
+          variant: 'tip',
+          content:
+            'As a beginner, it is perfectly fine to include pronouns while you are learning. Native speakers will understand you. As you gain confidence, practice dropping them to sound more natural.',
+        },
+      ],
+    },
+  ],
+};
+
+export default personalPronounsTutorial;

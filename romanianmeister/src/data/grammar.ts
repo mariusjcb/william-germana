@@ -16,6 +16,22 @@ export const grammarTopics: GrammarTopic[] = [
   { id: 'demonstratives', name: 'Demonstrative Pronouns', description: 'Use acesta, aceasta, acela, aceea', cardCount: 6, level: 'A1' },
   { id: 'numbers-time', name: 'Numbers & Time', description: 'Count and tell time in Romanian', cardCount: 6, level: 'A1' },
   { id: 'common-expressions', name: 'Common Expressions', description: 'Essential everyday phrases', cardCount: 6, level: 'A1' },
+  // ── A2 Topics ──
+  { id: 'past-tense', name: 'Past Tense (Perfectul Compus)', description: 'Form the past tense with auxiliary "a avea" + past participle', cardCount: 12, level: 'A2' },
+  { id: 'future-tense', name: 'Future Tense', description: 'Express the future with "o să" + subjunctive and "voi" forms', cardCount: 10, level: 'A2' },
+  { id: 'reflexive-verbs', name: 'Reflexive Verbs', description: 'Use reflexive pronouns with verbs like a se spăla, a se trezi', cardCount: 10, level: 'A2' },
+  { id: 'accusative-pronouns', name: 'Accusative Pronouns', description: 'Master direct object pronouns mă, te, îl, o, ne, vă, îi, le', cardCount: 8, level: 'A2' },
+  { id: 'dative-pronouns', name: 'Dative Pronouns', description: 'Use indirect object pronouns îmi, îți, îi, ne, vă, le', cardCount: 8, level: 'A2' },
+  { id: 'genitive-dative-case', name: 'Genitive-Dative Case', description: 'Express possession with al/a/ai/ale and genitive-dative prepositions', cardCount: 10, level: 'A2' },
+  { id: 'comparatives-superlatives', name: 'Comparatives & Superlatives', description: 'Compare with mai...decât, cel mai/cea mai, la fel de...ca', cardCount: 8, level: 'A2' },
+  { id: 'conjunctions-connectors', name: 'Conjunctions & Connectors', description: 'Connect ideas with și, dar, că, dacă, pentru că, deși', cardCount: 8, level: 'A2' },
+  { id: 'imperfect-tense', name: 'Imperfect Tense', description: 'Describe habitual and ongoing past actions', cardCount: 10, level: 'A2' },
+  { id: 'subjunctive-mood', name: 'Subjunctive Mood', description: 'Use "să" + verb after verbs of desire and necessity', cardCount: 10, level: 'A2' },
+  { id: 'conditional-mood', name: 'Conditional Mood', description: 'Form polite requests and hypotheticals with aș/ai/ar + infinitive', cardCount: 8, level: 'A2' },
+  { id: 'possessive-articles', name: 'Possessive Articles', description: 'Use al, a, ai, ale to link possessors to nouns', cardCount: 8, level: 'A2' },
+  { id: 'relative-pronouns', name: 'Relative Pronouns', description: 'Connect clauses with care, ce, pe care, căruia/căreia', cardCount: 8, level: 'A2' },
+  { id: 'adverbs', name: 'Adverbs & Adverbial Phrases', description: 'Express frequency, manner, and time with adverbs', cardCount: 8, level: 'A2' },
+  { id: 'passive-voice', name: 'Passive Voice Basics', description: 'Form the passive with "a fi" + past participle', cardCount: 8, level: 'A2' },
 ];
 
 export const grammarCards: GrammarCard[] = [

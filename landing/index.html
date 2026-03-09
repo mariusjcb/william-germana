@@ -178,10 +178,12 @@
 
     <p class="footer">Interactive flashcards with spaced repetition</p>
     <p class="footer">This website is for educational purposes only.</p>
-    <p class="footer">&copy; 2026 LanguageMeister</p>
+    <p class="footer">&copy; <span id="copyright-year"></span> LanguageMeister</p>
   </div>
 
   <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
     // Unregister any old service workers at this scope
     // (DeutschMeister previously served from root and its SW may intercept this page)
     if ('serviceWorker' in navigator) {
